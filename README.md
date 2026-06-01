@@ -16,7 +16,29 @@ pip install -r requirements.txt
 ```
 
 ### 3. Directory Structure
-- `src/tools/`: Extension point for your custom tools.
+- `src/tools/`: TripWise travel tools (mock APIs)
+- `chatbot.py`: Baseline chatbot (no tools)
+- `tripwise_agent.py`: ReAct agent CLI (v1 / v2)
+- `scripts/run_eval.py`: Compare chatbot vs agent
+- `report/group_report/GROUP_REPORT_TRIPWISE.md`: Group submission template (filled)
+
+### 4. TripWise Quick Start (Mimo / OpenAI)
+
+**Mimo (OpenAI-compatible):**
+```bash
+cp .env.example .env   # điền MIMO_API_KEY (tp-...)
+# DEFAULT_PROVIDER=mimo  MIMO_BASE_URL=https://token-plan-sgp.xiaomimimo.com/v1
+python scripts/smoke_test.py
+python tripwise_agent.py --v2
+```
+
+**OpenAI:** set `DEFAULT_PROVIDER=openai` and `OPENAI_API_KEY=sk-...`
+
+```bash
+pytest tests/test_travel_tools.py -q          # offline, no API
+python chatbot.py                           # baseline
+python scripts/run_eval.py --limit 2        # evaluation
+```
 
 ## 🏠 Running with Local Models (CPU)
 

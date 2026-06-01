@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    container_name: react-agent
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
