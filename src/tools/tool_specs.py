@@ -3,6 +3,7 @@ from typing import Any, Callable, Dict, List
 
 from src.tools import travel_tools as t
 from src.tools.hotel_tool import search_hotels
+from src.tools.weather_tool import get_weather
 
 
 def _spec(name: str, description: str, func: Callable, example: str) -> Dict[str, Any]:
@@ -23,9 +24,12 @@ def get_tools_v1() -> List[Dict[str, Any]]:
         ),
         _spec(
             "get_weather",
-            'Thời tiết điểm đến. Args: destination (str), date (str, optional). Example: get_weather("Đà Nẵng", "today")',
-            t.get_weather,
-            'get_weather("Đà Nẵng", "today")',
+            "Get current weather information for a city. "
+            "Input JSON: {city: string}. "
+            "Output JSON: {city: string, condition: string, temperature: number, humidity: number, wind_speed: number}. "
+            "Use this tool whenever the user asks about weather, forecast, temperature, rain, climate, or travel planning.",
+            get_weather,
+            'get_weather("Đà Nẵng")',
         ),
         _spec(
             "search_attractions",

@@ -1,5 +1,4 @@
 from src.tools.travel_tools import (
-    get_weather,
     search_attractions,
     estimate_trip_cost,
     calculate_route_time,
@@ -10,6 +9,7 @@ from src.tools.travel_tools import (
 )
 from src.tools.tool_specs import get_tools_v1, get_tools_v2
 from src.tools.hotel_tool import search_hotels
+from src.tools.weather_tool import get_weather
 
 __all__ = [
     "get_weather",

@@ -53,6 +53,8 @@ RULES:
 Recommended flow:
 When the user asks about hotel, accommodation, room price, hotel cost, or travel budget,
 call search_hotels(city, nights). Use the number of overnight stays, not the number of travel days.
+When the user asks about weather, forecast, temperature, rain, climate, or travel planning,
+call get_weather(city).
 Thought → Action (get_weather) → [Observation]
 Thought → Action (search_attractions) → [Observation]
 Thought → Action (estimate_trip_cost) → [Observation]
@@ -69,7 +71,7 @@ Always verify budget with check_budget_fit before Final Answer.
 """
         examples = """
 EXAMPLE Action lines:
-Action: get_weather("Đà Nẵng", "today")
+Action: get_weather("Đà Nẵng")
 Action: search_attractions("Đà Nẵng", "biển")
 Action: estimate_trip_cost("Đà Nẵng", 3, 2)
 Action: create_itinerary("Đà Nẵng", 3, 5000000, "biển")
